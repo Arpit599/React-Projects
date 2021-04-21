@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function UpdateForm(props) {
   const [inputText, setInputText] = useState(
     props.updateFlag ? props.currentTodo.text : ""
   );
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.updateTodo(props.currentTodo.id, inputText);
+    props.submitUpdate(inputText);
     setInputText("");
   };
 
@@ -18,6 +22,7 @@ function UpdateForm(props) {
         placeholder="Update  Todo"
         className="update-input"
         value={inputText}
+        ref={inputRef}
         onChange={(e) => setInputText(e.target.value)}
       />
       <button className="update-button">Update</button>

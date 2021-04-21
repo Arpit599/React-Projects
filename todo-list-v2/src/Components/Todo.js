@@ -3,22 +3,31 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import UpdateForm from "./UpdateForm";
 
-function Todo({ todo, removeTodo, updateTodo }) {
+function Todo({ todo, removeTodo, updateTodo, completedTodo }) {
   const [updateFlag, setupdateFlag] = useState(false);
+
+  const submitUpdate = (updatedText) => {
+    updateTodo(todo.id, updatedText);
+    setupdateFlag(false);
+  };
 
   if (updateFlag) {
     return (
       <UpdateForm
         updateFlag={updateFlag}
         currentTodo={todo}
-        updateTodo={updateTodo}
+        submitUpdate={submitUpdate}
       />
     );
   }
 
   return (
-    <>
-      <div className="todo-text" style={{ fontSize: "1.5rem" }}>
+    <div className={todo.isCompleted ? "active-todo complete" : "active-todo"}>
+      <div
+        className="todo-text"
+        style={{ fontSize: "1.5rem" }}
+        onClick={() => completedTodo(todo.id)}
+      >
         {todo.text}
       </div>
       <div className="icons">
@@ -28,7 +37,7 @@ function Todo({ todo, removeTodo, updateTodo }) {
         />
         <TiEdit className="edit-icon" onClick={() => setupdateFlag(true)} />
       </div>
-    </>
+    </div>
   );
 }
 

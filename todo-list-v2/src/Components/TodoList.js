@@ -9,12 +9,14 @@ function TodoList() {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-    const newTodos = [...todos, todo];
+
     setTodos([...todos, todo]);
-    console.log(...newTodos);
   };
 
   const updateTodo = (id, textVal) => {
+    if (!textVal || /^\s*$/.test(textVal)) {
+      return;
+    }
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.text = textVal;
@@ -27,6 +29,16 @@ function TodoList() {
   const removeTodo = (delTodoId) => {
     setTodos(todos.filter((todo) => todo.id !== delTodoId));
     console.log(...todos);
+  };
+
+  const completedTodo = (completedTodoId) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === completedTodoId) {
+        todo.isCompleted = !todo.isCompleted;
+      }
+      return todo;
+    });
+    setTodos(newTodos);
   };
 
   return (
@@ -42,6 +54,7 @@ function TodoList() {
                 key={todo.id}
                 removeTodo={removeTodo}
                 updateTodo={updateTodo}
+                completedTodo={completedTodo}
               />
             );
           })}
