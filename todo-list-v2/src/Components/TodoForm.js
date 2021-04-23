@@ -27,7 +27,7 @@ function TodoForm(props) {
         ref={inputRef}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button className="todo-button">Add</button>
+      <button className="todo-button">Add Todo</button>
     </form>
   );
 }

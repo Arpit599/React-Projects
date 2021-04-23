@@ -42,8 +42,8 @@ function TodoList() {
   };
 
   return (
-    <div>
-      <h1>What's the plan for today?</h1>
+    <>
+      <h1 className="todo-header">What's the plan for today?</h1>
       <TodoForm onSubmit={addTodo} />
       {todos.length == 0
         ? "There is no todo left"
@@ -58,7 +58,7 @@ function TodoList() {
               />
             );
           })}
-    </div>
+    </>
   );
 }
 

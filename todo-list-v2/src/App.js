@@ -1,10 +1,12 @@
 import "./App.css";
 import TodoList from "./Components/TodoList";
+import UseEffect from "./Components/UseEffect";
 
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      {/* <TodoList /> */}
+      <UseEffect />
     </div>
   );
 }

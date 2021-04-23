@@ -19,7 +19,7 @@ function UpdateForm(props) {
     <form className="update-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Update  Todo"
+        placeholder="Update Todo"
         className="update-input"
         value={inputText}
         ref={inputRef}
