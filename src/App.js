@@ -3,8 +3,10 @@ import Header from "./MyComponents/header";
 import { Todos } from "./MyComponents/Todos";
 import { Footer } from "./MyComponents/Footer";
 import { AddTodo } from "./MyComponents/AddTodo";
-
+import { About } from "./MyComponents/About";
 import React, { useState, useEffect } from "react";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   let initTodo;
@@ -42,18 +44,35 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos));
   };
 
-  const [todos, setTodos] = useState([initTodo]);
+  const [todos, setTodos] = useState(initTodo);
+  //We are using useEffect as changes of setTodos don't take place instantly
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  });
+  }, [todos]);
 
   return (
-    <>
+    <Router>
       <Header title="Todos List" />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} onDelete={onDelete} />
+
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <>
+                <AddTodo addTodo={addTodo} />
+                <Todos todos={todos} onDelete={onDelete} />
+              </>
+            );
+          }}
+        ></Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+      </Switch>
       <Footer />
-    </>
+    </Router>
   );
 }
 
