@@ -1,0 +1,12 @@
+.cards {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.card-item {
+  list-style: none;
+}
