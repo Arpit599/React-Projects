@@ -1,16 +1,16 @@
 {
   "tasks": [
     {
-      "id": 1680,
-      "text": "Run 10 kms"
-    },
-    {
       "id": 3754,
       "text": "Buy vegetables and fruits"
     },
     {
       "id": 798,
       "text": "Meditation for half an hour"
+    },
+    {
+      "id": 2173,
+      "text": "Half an hour nap"
     }
   ]
 }
