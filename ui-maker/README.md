@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 To run the json-server for CRUD operations available with the to-do app.\
 Open [http://localhost:5000/tasks](http://localhost:5000/tasks) to view it in the browser.
 
-### `npm backendDraw`
+### `npm run backendDraw`
 
 To run the json-server for CRUD operations available with the Draw tab which uses Excalidraw plugin.\
 Open [http://localhost:5050/elements](http://localhost:5050/elements) to view it in the browser.
